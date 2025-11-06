@@ -1,6 +1,10 @@
 {
   "name": "starter-project-monorepo",
   "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev",
@@ -9,10 +13,11 @@
     "test:watch": "turbo run test:watch",
     "test:coverage": "turbo run test:coverage",
     "test:update": "turbo run test:update",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "format": "prettier --write --cache \"**/*.{js,jsx,ts,tsx,md,css,scss,json,yml,yaml,html}\"",
     "check-types": "turbo run check-types"
   },
   "devDependencies": {
+    "@ianvs/prettier-plugin-sort-imports": "^4.7.0",
     "prettier": "^3.6.2",
     "turbo": "^2.5.8",
     "typescript": "catalog:"
