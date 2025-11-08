@@ -9,6 +9,8 @@ pnpm-lock.yaml
 yarn.lock
 package-lock.json
 .turbo/
+.vscode/
+.github/
 .cache/
 *.min.js
 *.min.css
