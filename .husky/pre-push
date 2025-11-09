@@ -1,0 +1,12 @@
+if [ "$(git rev-parse - abbrev-ref HEAD)" = "main" ]; then
+echo "Skipping checks on main branch."
+exit 0
+fi
+
+pnpm test - - changedSince=origin/main
+
+pnpm lint
+
+pnpm check-types
+
+pnpm audit
