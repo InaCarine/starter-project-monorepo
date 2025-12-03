@@ -10,5 +10,8 @@
     "stylelint": "catalog:",
     "stylelint-config-standard": "^39.0.1",
     "stylelint-gamut": "^1.3.4"
+  },
+  "peerDependencies": {
+    "stylelint": "^16.0.0"
   }
 }
