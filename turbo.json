@@ -8,7 +8,12 @@
       "outputs": [".next/**", "!.next/cache/**"]
     },
     "lint": {
-      "dependsOn": ["^lint"]
+      "dependsOn": ["^lint", "lint:css"],
+      "outputs": ["node_modules/.cache/eslint"]
+    },
+    "lint:css": {
+      "dependsOn": ["^lint:css"],
+      "outputs": ["node_modules/.cache/stylelint"]
     },
     "check-types": {
       "dependsOn": ["^check-types"]

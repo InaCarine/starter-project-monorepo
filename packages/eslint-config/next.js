@@ -1,11 +1,8 @@
-import js from '@eslint/js';
 import pluginNext from '@next/eslint-plugin-next';
-import eslintConfigPrettier from 'eslint-config-prettier';
 import pluginJsxA11y from 'eslint-plugin-jsx-a11y';
 import pluginReact from 'eslint-plugin-react';
 import pluginReactHooks from 'eslint-plugin-react-hooks';
 import globals from 'globals';
-import tseslint from 'typescript-eslint';
 
 import { config as baseConfig } from './base.js';
 
@@ -16,9 +13,6 @@ import { config as baseConfig } from './base.js';
  * */
 export const nextJsConfig = [
   ...baseConfig,
-  js.configs.recommended,
-  eslintConfigPrettier,
-  ...tseslint.configs.recommended,
   {
     ...pluginReact.configs.flat.recommended,
     languageOptions: {
@@ -49,5 +43,8 @@ export const nextJsConfig = [
       // React scope no longer necessary with new JSX transform.
       'react/react-in-jsx-scope': 'off',
     },
+  },
+  {
+    ignores: ['.next/**', 'next-env.d.ts'],
   },
 ];
