@@ -6,6 +6,9 @@
   "exports": {
     "./base": "./base.js"
   },
+  "scripts": {
+    "clean": "rm -rf ./node_modules .turbo"
+  },
   "devDependencies": {
     "stylelint": "catalog:",
     "stylelint-config-standard": "^39.0.1",
