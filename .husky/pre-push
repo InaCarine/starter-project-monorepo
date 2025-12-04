@@ -3,7 +3,7 @@ echo "Skipping checks on main branch."
 exit 0
 fi
 
-pnpm test --changedSince=origin/main
+pnpm test -- --changedSince=origin/main
 
 pnpm lint
 
