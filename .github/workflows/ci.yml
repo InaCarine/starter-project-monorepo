@@ -7,21 +7,24 @@ on:
     branches: [main]
 
 jobs:
-  build:
+  cache-and-install:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Set up Node.js
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10
+          run_install: false
+
+      - name: Install Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: 20
           cache: 'pnpm'
-
-      - name: Install pnpm
-        run: npm install -g pnpm
 
       - name: Install dependencies
         run: pnpm install
@@ -37,10 +40,3 @@ jobs:
 
       - name: Build
         run: pnpm build
-
-      # # Optional: Upload coverage to Codecov
-      # - name: Upload coverage
-      #   uses: codecov/codecov-action@v4
-      #   with:
-      #     files: ./packages/ui/coverage/lcov.info
-      #   if: success()
