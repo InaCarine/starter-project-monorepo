@@ -1,12 +1,30 @@
-if [ "$(git rev-parse - abbrev-ref HEAD)" = "main" ]; then
-echo "Skipping checks on main branch."
-exit 0
+set -e
+
+# branch_name=$(git rev-parse --abbrev-ref HEAD)
+
+# if [ "$branch_name" = "main" ]; then
+#   echo "You can't push directly to main branch."
+#   exit 1
+# fi
+
+if ! pnpm format:check; then
+  echo "Formatting errors! Push denied."
+  exit 1
 fi
 
-pnpm test -- --changedSince=origin/main
+if ! pnpm lint; then
+  echo "Linting errors! Push denied."
+  exit 1
+fi
 
-pnpm lint
+if ! pnpm check-types; then
+  echo "Type errors! Push denied."
+  exit 1
+fi
 
-pnpm check-types
+if ! pnpm test -- --changedSince=origin/main; then
+  echo "Tests failed! Push denied."
+  exit 1
+fi
 
-pnpm audit
+exit 0

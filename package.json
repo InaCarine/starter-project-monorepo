@@ -15,6 +15,7 @@
     "test:coverage": "turbo run test:coverage",
     "test:update": "turbo run test:update",
     "format": "prettier --write --cache \"**/*.{js,jsx,ts,tsx,md,css,scss,json,yml,yaml,html}\"",
+    "format:check": "prettier --check --cache \"**/*.{js,jsx,ts,tsx,md,css,scss,json,yml,yaml,html}\"",
     "check-types": "turbo run check-types",
     "prepare": "husky",
     "clean": "turbo run clean && rm -rf node_modules && rm -rf pnpm-lock.yaml"
