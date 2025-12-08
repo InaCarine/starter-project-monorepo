@@ -16,7 +16,6 @@ This is a modern monorepo setup for web projects, powered by [Turborepo](https:/
 ├── package.json
 ├── pnpm-workspace.yaml
 ├── turbo.json
-├── .github/workflows/ci.yml
 └── README.md
 ```
 
@@ -98,7 +97,7 @@ Common scripts (run from repo root):
 
 ## Continuous Integration
 
-Automated CI runs on every push and pull request via GitHub Actions (`.github/workflows/ci.yml`):
+Automated CI runs on every push and pull request via GitHub Actions:
 
 - Installs dependencies with pnpm
 - Runs lint, type-check, test, and build tasks
